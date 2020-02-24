@@ -27,7 +27,7 @@ export function moneyAsNumber(value: string | number): number {
 	let valueNumeric = value.replace(/[^0-9,.]/g, "");
 	if (parseInt(valueNumeric) + "" === valueNumeric) return parseInt(valueNumeric);
 	if (parseFloat(valueNumeric.replace(/,/g, ".")) + "" === valueNumeric.replace(/,/g, "."))
-		return parseFloat(valueNumeric.replace(/,/g, "."));
+		return Math.round(parseFloat(valueNumeric.replace(/,/g, ".")) * 100) / 100 ;
 	if (parseFloat(valueNumeric) + "" === valueNumeric) return parseFloat(valueNumeric);
 	
 	// Try to gather the comma character
